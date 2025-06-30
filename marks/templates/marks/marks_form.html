@@ -1,0 +1,56 @@
+<h2>Select Filter</h2>
+<form method="POST">
+  {% csrf_token %}
+
+  <label>Regulation:</label>
+  <select name="regulation">
+    {% for r in regulations %}
+      <option value="{{ r.id }}">{{ r.code }} - {{ r.passout_year }}</option>
+      {% comment %} <option value="{{ r.id }}">{{ r.code }} - {{ r.batch_year }}</option> {% endcomment %}
+    {% endfor %}
+  </select>
+
+  <label>Exam Type:</label>
+  <select name="exam_type">
+    {% for e in exam_types %}
+      <option value="{{ e.id }}">{{ e.name }}</option>
+    {% endfor %}
+  </select>
+
+  <label>Year:</label>
+  <select name="year">
+    <option value="I">I</option>
+    <option value="II">II</option>
+    <option value="III">III</option>
+    <option value="IV">IV</option>
+  </select>
+
+  <label>Semester:</label>
+  <select name="semester">
+    <option value="I">I</option>
+    <option value="II">II</option>
+    <option value="III">III</option>
+    <option value="IV">IV</option>
+    <option value="V">V</option>
+    <option value="VI">VI</option>
+    <option value="VII">VII</option>
+    <option value="VIII">VIII</option>
+  </select>
+
+  <label>Branch:</label>
+  <select name="branch">
+    {% for b in branches %}
+      <option value="{{ b.id }}">{{ b.code }}</option>
+    {% endfor %}
+  </select>
+
+  <label>Section:</label>
+  <select name="section">
+    {% for s in sections %}
+      <option value="{{ s.id }}">{{ s.name }}</option>
+    {% endfor %}
+  </select>
+
+  <br><br>
+  <button type="submit">Fetch Marks</button>
+</form>
