@@ -17,7 +17,6 @@ def fetch_marks_table(request):
             regulation_id=regulation_id,
             branch_id=branch_id,
             section_id=section_id,
-            year=year,
             semester=semester
         )
 

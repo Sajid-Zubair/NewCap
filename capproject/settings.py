@@ -79,7 +79,7 @@ WSGI_APPLICATION = "capproject.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'griet2',
+        'NAME': 'griet4',
         'USER': 'root',
         'PASSWORD': 'kidshot123',
         'HOST': 'localhost',
