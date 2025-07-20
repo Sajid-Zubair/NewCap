@@ -44,6 +44,7 @@ class Student(models.Model):
     name = models.CharField(max_length=100)
     year = models.CharField(max_length=10)  # I, II, III, IV
     semester = models.CharField(max_length=10)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
     regulation = models.ForeignKey(Regulation, on_delete=models.CASCADE)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     section = models.ForeignKey(Section, on_delete=models.CASCADE)

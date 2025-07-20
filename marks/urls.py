@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.fetch_marks_table, name='fetch_marks'),
+    # path('send_sms/', views.send_sms_to_all, name='send_sms_to_all'),
 ]

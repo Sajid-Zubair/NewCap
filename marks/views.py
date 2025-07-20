@@ -43,7 +43,8 @@ def fetch_marks_table(request):
         for student in students:
             row = {
                 'student_id': student.roll_number,
-                'student_name': student.name
+                'student_name': student.name,
+                'phone_number': student.phone_number
             }
             for subject in subjects:
                 row[subject.name] = student_marks[student.roll_number].get(subject.name, '-')
@@ -69,3 +70,6 @@ def fetch_marks_table(request):
         'sections': Section.objects.all(),
     }
     return render(request, 'marks/marks_form.html', context)
+
+
+
