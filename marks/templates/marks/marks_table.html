@@ -1,39 +1,5 @@
-{% comment %} {% load custom_filters %}
-<h2>Marks Table</h2>
-<h3>Exam Type: {{ exam_type_name }}</h3>
-
-{% if rows %}
-<table border="1" cellpadding="10">
-  <thead>
-    <tr>
-      <th>Student ID</th>
-      <th>Name</th>
-      {% for subject in subjects %}
-        <th>{{ subject }}</th>
-      {% endfor %}
-    </tr>
-  </thead>
-  <tbody>
-    {% for row in rows %}
-      <tr>
-        <td>{{ row.student_id }}</td>
-        <td>{{ row.student_name }}</td>
-        {% for subject in subjects %}
-          <td>{{ row|get_item:subject }}</td>
-        {% endfor %}
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% else %}
-  <p><strong>No Students Found</strong></p>
-{% endif %}
-
-<br>
-<a href="/">Back to filter</a> {% endcomment %}
-
-
 {% load custom_filters %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,12 +132,76 @@
         font-size: 28px;
       }
     }
+
+  .logos {
+      position: absolute;
+      margin-top: -10px;
+      top: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 40px;
+      z-index: 3;
+      background-color: rgb(241, 178, 241);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.institute-name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: -5px;
+}
+
+.institute-name .main-title {
+  color: #c41e3a;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  word-spacing: 4px;
+}
+
+.institute-name .sub-title {
+  color: #333;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+.griet, .aac {
+  width: 80px;
+  height: auto;
+}
+.head{
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
   </style>
 </head>
 <body>
+  <div class="logos">
+  <div class="logo-section">
+    <img class="griet" src="{% static 'GRIET.PNG' %}" alt="GRIET Logo">
+    <div class="institute-name">
+      <span class="main-title">GOKARAJU RANGARAJU</span>
+      <span class="sub-title">INSTITUTE OF ENGINEERING AND TECHNOLOGY</span>
+    </div>
+  </div>
+  <img class="aac" src="{% static 'AAC.PNG' %}" alt="AAC Logo">
+</div>
 
+<div class="head">
   <h2>Marks Table</h2>
   <h3 style="font-style: italic">Exam Type: {{ exam_type_name }}</h3>
+</div>
 
   {% if rows %}
     <table>
